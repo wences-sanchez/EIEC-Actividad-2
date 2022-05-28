@@ -35,13 +35,18 @@ class Calculator:
         return x ** y
 
     def root_square(self, x):
-        self.check_types(x)
+        self.check_type(x)
         return math.sqrt(x)
 
-    def check_types(self, x, y):
+    @staticmethod
+    def check_types(x, y):
         if not isinstance(x, (int, float)) or not isinstance(y, (int, float)):
             raise TypeError("Parameters must be numbers")
 
+    @staticmethod
+    def check_type(x):
+        if not isinstance(x, (int, float)):
+            raise TypeError("Parameter must be a number")
 
 if __name__ == "__main__":  # pragma: no cover
     calc = Calculator()
