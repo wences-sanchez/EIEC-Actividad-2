@@ -34,7 +34,7 @@ class Calculator:
         self.check_types(x, y)
         return x ** y
 
-    def root_square(self, x):
+    def squared_root(self, x):
         self.check_type(x)
         return math.sqrt(x)
 
@@ -51,6 +51,7 @@ class Calculator:
     def check_type(x):
         if not isinstance(x, (int, float)):
             raise TypeError("Parameter must be a number")
+
 
 if __name__ == "__main__":  # pragma: no cover
     calc = Calculator()
