@@ -1,3 +1,5 @@
+import math
+
 import app
 
 
@@ -31,6 +33,10 @@ class Calculator:
     def power(self, x, y):
         self.check_types(x, y)
         return x ** y
+
+    def root_square(self, x):
+        self.check_types(x)
+        return math.sqrt(x)
 
     def check_types(self, x, y):
         if not isinstance(x, (int, float)) or not isinstance(y, (int, float)):
