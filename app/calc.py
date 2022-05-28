@@ -38,6 +38,10 @@ class Calculator:
         self.check_type(x)
         return math.sqrt(x)
 
+    def log_10(self, x):
+        self.check_type(x)
+        return math.log10(x)
+
     @staticmethod
     def check_types(x, y):
         if not isinstance(x, (int, float)) or not isinstance(y, (int, float)):
