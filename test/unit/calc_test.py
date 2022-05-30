@@ -3,6 +3,7 @@ from unittest.mock import patch
 import pytest
 
 from app.calc import Calculator
+from test.unit.util_test import TestUtil
 
 
 def mocked_validation(*args, **kwargs):
@@ -13,6 +14,7 @@ def mocked_validation(*args, **kwargs):
 class TestCalculate(unittest.TestCase):
     def setUp(self):
         self.calc = Calculator()
+        self.util = TestUtil()
 
     def test_add_method_returns_correct_result(self):
         self.assertEqual(4, self.calc.add(2, 2))
@@ -23,11 +25,6 @@ class TestCalculate(unittest.TestCase):
     def test_divide_method_returns_correct_result(self):
         self.assertEqual(1, self.calc.divide(2, 2))
         self.assertEqual(1.5, self.calc.divide(3, 2))
-
-    def test_divide_method_fails_with_nan_parameter(self):
-        self.assertRaises(TypeError, self.calc.divide, "2", 2)
-        self.assertRaises(TypeError, self.calc.divide, 2, "2")
-        self.assertRaises(TypeError, self.calc.divide, "2", "2")
 
     def test_divide_method_fails_with_division_by_zero(self):
         self.assertRaises(TypeError, self.calc.divide, 2, 0)
@@ -95,14 +92,43 @@ class TestCalculate(unittest.TestCase):
     TESTS NEGATIVOS (comprobamos que lanza excepción)
     """
 
-    # Testear que la resta lanza excepción en caso de error en sus parámetros
-    # Testear que la división lanza excepción en caso de error en sus parámetros
-    # Testear que la multiplicación lanza excepción en caso de error en sus parámetros
-    # Testear que la potencia lanza excepción en caso de error en su parámetro
-    # Testear que la potencia lanza excepción en caso de error en sus parámetros
-    # Testear que la raíz lanza excepción en caso de error en su parámetro
-    # Testear que el logaritmo de base 10 lanza excepción en caso de error en su parámetro
+    def test_add_method_fails_with_nan_parameter(self):
+        self.assertRaises(TypeError, self.calc.divide, "2", 2)
+        self.assertRaises(TypeError, self.calc.divide, 2, "2")
+        self.assertRaises(TypeError, self.calc.divide, "2", "2")
 
+    # Testear que la resta lanza excepción en caso de error en sus parámetros
+    def test_substract_method_fails_with_nan_parameter(self):
+        self.assertRaises(TypeError, self.calc.substract, "2", 2)
+        self.assertRaises(TypeError, self.calc.substract, 2, "2")
+        self.assertRaises(TypeError, self.calc.substract, "2", "2")
+
+    # Testear que la división lanza excepción en caso de error en sus parámetros
+    def test_divide_method_fails_with_nan_parameter(self):
+        self.assertRaises(TypeError, self.calc.divide, "2", 2)
+        self.assertRaises(TypeError, self.calc.divide, 2, "2")
+        self.assertRaises(TypeError, self.calc.divide, "2", "2")
+
+    # Testear que la multiplicación lanza excepción en caso de error en sus parámetros
+    def test_multiply_method_fails_with_nan_parameter(self):
+        self.assertRaises(TypeError, self.calc.multiply, "2", 2)
+        self.assertRaises(TypeError, self.calc.multiply, 2, "2")
+        self.assertRaises(TypeError, self.calc.multiply, "2", "2")
+
+    # Testear que la potencia lanza excepción en caso de error en su parámetro
+    def test_power_method_fails_with_nan_parameter(self):
+        self.assertRaises(TypeError, self.calc.power, "2")
+        self.assertRaises(TypeError, self.calc.power, None)
+
+    # Testear que la raíz lanza excepción en caso de error en su parámetro
+    def test_squared_root_method_fails_with_nan_parameter(self):
+        self.assertRaises(TypeError, self.calc.squared_root, "2")
+        self.assertRaises(TypeError, self.calc.squared_root, None)
+
+    # Testear que el logaritmo de base 10 lanza excepción en caso de error en su parámetro
+    def test_log_10_method_fails_with_nan_parameter(self):
+        self.assertRaises(TypeError, self.calc.log_10, "2")
+        self.assertRaises(TypeError, self.calc.log_10, None)
 
 
 if __name__ == "__main__":  # pragma: no cover
