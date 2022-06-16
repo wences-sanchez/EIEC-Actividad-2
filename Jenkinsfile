@@ -12,7 +12,6 @@ pipeline {
             steps {
                 echo 'Building stage!'
                 sh 'make build'
-                sh 'make server'
             }
         }
         stage('Unit tests') {
