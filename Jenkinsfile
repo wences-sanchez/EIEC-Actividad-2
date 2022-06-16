@@ -26,6 +26,12 @@ pipeline {
                 sh 'make test-api'
             }
         }
+        stage('E2E tests') {
+            steps {
+                echo 'End-to-end tests'
+                sh 'make test-e2e'
+            }
+        }
     }
     post {
         always {
