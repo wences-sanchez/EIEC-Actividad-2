@@ -20,6 +20,12 @@ pipeline {
                 archiveArtifacts artifacts: 'results/*.xml'
             }
         }
+        stage('API tests') {
+            steps {
+                echo 'Testing the API'
+                sh 'make test-api'
+            }
+        }
     }
     post {
         always {
