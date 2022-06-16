@@ -1,7 +1,7 @@
 pipeline {
-    agent {
-        label 'docker'
-    }
+//    agent {
+//        label 'docker'
+//    }
     stages {
         stage('Source') {
             steps {
