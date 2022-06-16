@@ -12,6 +12,7 @@ pipeline {
             steps {
                 echo 'Building stage!'
                 sh 'make build'
+                sh 'make server'
             }
         }
         stage('Unit tests') {
@@ -29,7 +30,6 @@ pipeline {
         stage('E2E tests') {
             steps {
                 echo 'End-to-end tests'
-                sh 'make server'
                 sh 'make test-e2e'
             }
         }
