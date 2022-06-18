@@ -31,6 +31,7 @@ pipeline {
             steps {
                 echo 'End-to-end tests'
                 sh 'make test-e2e'
+                archiveArtifacts artifacts: 'results/*.xml'
             }
         }
     }
