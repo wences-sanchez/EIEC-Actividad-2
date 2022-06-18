@@ -16,6 +16,9 @@ class TestCalculate(unittest.TestCase):
         self.calc = Calculator()
         self.util = TestUtil()
 
+    def test_failed(self):
+        self.assertFalse('Intentionally fail to check failures in Jenkins')
+
     def test_add_method_returns_correct_result(self):
         self.assertEqual(4, self.calc.add(2, 2))
         self.assertEqual(0, self.calc.add(2, -2))
