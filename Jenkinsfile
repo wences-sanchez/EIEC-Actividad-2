@@ -24,6 +24,7 @@ pipeline {
             steps {
                 echo 'Testing the API'
                 sh 'make test-api'
+                archiveArtifacts artifacts: 'results/*.xml'
             }
         }
         stage('E2E tests') {
