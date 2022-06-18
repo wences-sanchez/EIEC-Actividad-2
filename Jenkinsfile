@@ -40,5 +40,10 @@ pipeline {
             junit 'results/*_result.xml'
             cleanWs()
         }
+        failure {
+            mail bcc: '', body: "<b>EIEC_Actividad-3</b><br>URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8',
+                    from: '', mimeType: 'text/html', replyTo: '', subject: "ERROR en el proyecto ${env.JOB_NAME}",
+                    to: "wenceslaosanchezpino@gmail.com";
+        }
     }
 }
