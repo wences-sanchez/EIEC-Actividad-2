@@ -6,7 +6,6 @@ pipeline {
         stage('Source') {
             steps {
                 git 'https://github.com/wences-sanchez/EIEC-Actividad-3.git'
-                sh 'make clean'
             }
         }
         stage('Build') {
