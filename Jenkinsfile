@@ -37,7 +37,7 @@ pipeline {
     }
     post {
         always {
-            junit 'results/*_result.xml', skipPublishingChecks: true
+            junit testResults: 'results/*_result.xml', skipPublishingChecks: true
             cleanWs()
         }
         failure {
