@@ -41,7 +41,8 @@ pipeline {
             cleanWs()
         }
         failure {
-//            mail bcc: '', body: "<b>EIEC_Actividad-3</b><br>URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', \
+            echo "body: Project: ${env.JOB_NAME}\n Build Number: ${env.BUILD_NUMBER}\n URL de build: ${env.BUILD_URL}"
+//            mail bcc: '', body: "<b>EIEC_Actividad-3</b><br>Project: ${env.JOB_NAME} <br> Build Number: ${env.BUILD_NUMBER}<br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', \
 //                    from: '', mimeType: 'text/html', replyTo: '', subject: "ERROR en el proyecto ${env.JOB_NAME}", \
 //                    to: "wenceslaosanchezpino@gmail.com";
         }
